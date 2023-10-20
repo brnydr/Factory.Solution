@@ -5,7 +5,7 @@ namespace Factory.Models
   public class Engineer
   {
     public int EngineerId {get; set;}
-    [Required(ErrorMessage = "Please enter a name for this engineer.")]
+    [Required]    
     public string Name {get; set;}
     public List<EngineerMachine> JoinEntities {get; set;}
   }
