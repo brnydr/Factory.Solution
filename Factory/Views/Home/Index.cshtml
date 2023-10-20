@@ -13,9 +13,9 @@
   <p>No engineers have been added yet!</p>
 } 
 <ul>
-  @foreach (Engineer eng in ViewBag.Engineers)
+  @foreach (Engineer engineer in ViewBag.Engineers)
   {
-    <li>@Html.ActionLink($"{eng.Name}", "Details", "Engineers", new { id = eng.EngineerId})</li>
+    <li>@Html.ActionLink($"{engineer.Name}", "Details", "Engineers", new { id = engineer.EngineerId})</li>
   }
 </ul>
 
@@ -25,9 +25,9 @@
   <p>No items have been added yet!</p>
 } 
 <ul>
-  @foreach (Machine mac in ViewBag.Machines)
+  @foreach (Machine machine in ViewBag.Machines)
   {
-    <li>@Html.ActionLink($"{mac.Model}", "Details", "Machines", new { id = mac.MachineId})</li>
+    <li>@Html.ActionLink($"{machine.Model}", "Details", "Machines", new { id = machine.MachineId})</li>
   }
 </ul>
 
