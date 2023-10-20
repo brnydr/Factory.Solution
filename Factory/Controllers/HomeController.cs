@@ -20,5 +20,7 @@ namespace Factory.Controllers
       ViewBag.PageTitle = "Home";
       return View();
     }
+
+    
   }
 }

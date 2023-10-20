@@ -49,5 +49,25 @@ namespace Factory.Controllers
         .FirstOrDefault(engineer => engineer.EngineerId == id);
       return View(thisEngineer);
     }
+
+    public ActionResult Edit(int id)
+    {
+      ViewBag.PageTitle = "Edit Engineer";
+      Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
+      return View(thisEngineer);
+    }
+
+    [HttpPost]
+    public ActionResult Edit(Engineer engineer)
+    {
+       if (!ModelState.IsValid)
+    {
+        ModelState.AddModelError("", "Please correct the errors and try again.");
+        return View(engineer);
+    }
+      _db.Engineers.Update(engineer);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }

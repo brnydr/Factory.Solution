@@ -1,0 +1,22 @@
+@{
+  Layout ="_Layout";
+}
+
+@model Factory.Models.Engineer
+
+<h2>Edit Engineer</h2>
+
+<h4>Edit this engineer: @Html.DisplayFor(model => model.Name)</h4>
+
+<p>@Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.EngineerId)
+  @Html.LabelFor(model => model.Name)
+  @Html.EditorFor(model => model.Name)
+  <span asp-validation-for="Name" class="text-danger"></span>
+  <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Back to Home", "Index", "Home")</p>
