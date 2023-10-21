@@ -1,0 +1,22 @@
+@{
+  Layout ="_Layout";
+}
+
+@model Factory.Models.Machine
+
+<h2>Edit Machine</h2>
+
+<h4>Edit this achine: @Html.DisplayFor(model => model.Model)</h4>
+
+<p>@Html.ValidationMessageFor(model => model.Model, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.MachineId)
+  @Html.LabelFor(model => model.Model)
+  @Html.EditorFor(model => model.Model)
+  <span asp-validation-for="Model" class="text-danger"></span>
+  <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Back to Home", "Index", "Home")</p>
