@@ -51,7 +51,7 @@ namespace Factory.Migrations
 
                     b.HasIndex("MachineId");
 
-                    b.ToTable("EngineerMachine");
+                    b.ToTable("EngineerMachines");
                 });
 
             modelBuilder.Entity("Factory.Models.Machine", b =>
