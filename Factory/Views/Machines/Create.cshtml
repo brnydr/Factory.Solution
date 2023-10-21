@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Machine
+
+<h4>Add a new machine</h4>
+
+<p>@Html.ValidationMessageFor(model => model.Model, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Model)
+    @Html.TextBoxFor(model => model.Model)
+    <span asp-validation-for="Model" class="text-danger"></span>
+    <input type="submit" value="Add new machine" class="btn btn-primary" />
+}
+
+<p>@Html.ActionLink("Show all machines", "Index")</p>
+<p>@Html.ActionLink("Back to Home", "Index", "Home")</p>
