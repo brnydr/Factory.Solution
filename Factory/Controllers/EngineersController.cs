@@ -92,10 +92,12 @@ namespace Factory.Controllers
 
     public ActionResult AddMachine(int id)
     {
-      ViewBag.PageTitle = "Add Machine";
-      Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
-      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Model");
-      return View(thisEngineer);
+        ViewBag.PageTitle = "Add Machine";
+        Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
+      
+        ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Model");
+        return View(thisEngineer);
+      
     }
 
     [HttpPost]
@@ -110,6 +112,15 @@ namespace Factory.Controllers
         _db.SaveChanges();
       }
       return RedirectToAction("Details", new { id = engineer.EngineerId });
+    }
+
+    [HttpPost]
+    public ActionResult DeleteJoin(int joinId)
+    {
+      EngineerMachine joinEntry = _db.EngineerMachines.FirstOrDefault(entry => entry.EngineerMachineId == joinId);
+      _db.EngineerMachines.Remove(joinEntry);
+      _db.SaveChanges();
+      return RedirectToAction("Details", new { id = joinEntry.EngineerId });
     }
 
   }
